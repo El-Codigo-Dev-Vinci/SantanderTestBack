@@ -1,33 +1,31 @@
 'use strict';
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Usuarios', {
+    await queryInterface.createTable('assistances', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
-        type: Sequelize.STRING,
-      },
-      contrasenia: {
+      userId: {
         allowNull: false,
-        type: Sequelize.STRING,
-      },
-      email: {
-        allowNull: false,
-        type: Sequelize.STRING,
-        unique: { msg: 'This email is already in use. Please use another' },
-        validate: {
-          isEmail: { msg: 'Invalid format' },
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id',
         },
       },
-      role: {
+      meetupId: {
         allowNull: false,
-        type: Sequelize.ENUM('invited', 'admin'),
-        defaultValue: 'invited',
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'meetups',
+          key: 'id',
+        },
       },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -38,7 +36,8 @@ module.exports = {
       },
     });
   },
+
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Usuarios');
+    await queryInterface.dropTable('assistances');
   },
 };
