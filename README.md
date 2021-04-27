@@ -1,29 +1,19 @@
-# Repositorio semilla: API NodeJS :seedling:
+# Meetups Beers 🍺:
 
-> Este es uno de los repositorios que utilizamos en la serie **Tu primera aplicación full stack: NodeJS + React**, [disponible en YouTube](https://www.youtube.com/playlist?list=PL7q-McYJyHlgVGQIRYVKl381twyJ4XM_h). Te recomendamos que mires la serie para entender un poco más sobre las tecnologías que elegimos. :smiley:
-
-¡Bienvenida/o! En este repositorio encontrarás una plantilla (de las infinitas posibles) para crear una API utilizando NodeJS. Las principales tecnologías que utilizamos son:
+Para crear una API utilizando NodeJS. Las principales tecnologías que utilizamos son:
 
 - [NodeJS](https://nodejs.org/es/): entorno de ejecución para JavaScript.
 - [ExpressJS](https://expressjs.com/): framework para crear aplicaciones web.
 - [Sequelize](https://sequelize.org/master/): ORM (object-relational mapping) para interactuar con una base SQL desde objetos JavaScript.
-- [PostgreSQL](https://www.postgresql.org/): base de datos SQL.
-- [Jest](https://jestjs.io/): framework para escribir tests.
-
-Para crear un proyecto siguiendo esta plantilla, lo único que tenés que hacer es clickear en el botón que dice `Use this template`. ¡Y no te olvides de cambiarle el nombre en el `package.json`!
+- [PostgreSQL](https://www.postgresql.org/): base de datos SQL. (Si no queres usar docker)
 
 ## :point_up: Prerrequisitos - para instalar antes de empezar
 
-Vas a necesitar un IDE o al menos un editor de texto que coloree la sintaxis. Recomendamos utilizar [Visual Studio Code](https://code.visualstudio.com/) - que se lleva muy bien con proyectos JavaScript - enriquecido con los siguientes plugins:
-
-- [ESlint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [Test Explorer UI](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-test-explorer)
-- [Jest Test Explorer](https://marketplace.visualstudio.com/items?itemName=kavod-io.vscode-jest-test-adapter)
-
-Para ejecutar el código es necesario tener NodeJS en su versión 14 (`lts/fermium`). Para instalarlo recomendamos utilizar el manejador de versiones [`nvm`](https://github.com/nvm-sh/nvm), aunque también podés hacerlo manualmente siguiendo las instrucciones adecuadas para tu sistema operativo.
+Para ejecutar el código es necesario tener NodeJS en su versión 14 (`lts/fermium`).
 
 Por último, se incluye un archivo de [Docker Compose](https://docs.docker.com/compose/) con todo lo necesario para instalar y configurar las bases de datos en PostgreSQL (una para desarrollo y otra para test). Si por algún motivo no querés usar Docker, vas a tener que instalar PostgreSQL y luego ejecutar el script `docker/init/crear-db.sh` en tu entorno.
+
+Generar una 'x-rapidapi-key' en [Rapidapi](https://rapidapi.com/) y copiarlo en los env
 
 ## :ballot_box_with_check: Configuración inicial del proyecto
 
@@ -45,13 +35,6 @@ npm run db:init
 NODE_ENV=test npm run db:init
 ```
 
-De manera opcional, también podés cargar unos datos de prueba, llamados _seeders_, que vienen incluidos. A medida que el desarrollo continue, se podrían seguir agregando más datos que ayuden en las pruebas manuales. Para cargar los _seeders_, ejecutar el siguiente comando:
-
-```shell
-# (Opcional) Carga los datos de prueba en la base de desarrollo.
-npm run db:seed
-```
-
 ## :file_folder: Estructura de directorios
 
 Breve descripción de qué se puede encontrar en cada uno de los directorios del proyecto:
@@ -68,7 +51,6 @@ Breve descripción de qué se puede encontrar en cada uno de los directorios del
 │   ├── controllers     # Acciones de nuestra aplicación
 │   ├── models          # Definición de modelos, atributos, etc
 │   └── routes          # Rutas de la API
-└── test                # Utilidades para escribir tests
 ```
 
 ## :woman_technologist: :man_technologist: Comandos útiles para el día a día
@@ -80,12 +62,6 @@ A continuación, algunos comandos necesarios para el desarrollo diario en este p
 ```shell
 # Levanta el proyecto y recarga automáticamente si hay cambios.
 npm start
-
-# Ejecuta los tests una sola vez.
-npm test
-
-# Ejecuta los tests y se queda esperando por cambios.
-npm test:watch
 ```
 
 ### Base de datos
@@ -94,14 +70,11 @@ npm test:watch
 # Ejecuta las migraciones.
 npm run db:init
 
-# Carga los datos de prueba.
+# (Opcional) Carga los datos de prueba en la base de desarrollo.
 npm run db:seed
 
-# Crea una nueva migración llamada `add-descripcion-to-producto`.
-npx sequelize migration:generate --name add-descripcion-to-producto
-
-# Crea un nuevo seeder llamado `edificios`.
-npx sequelize seed:generate --name edificios
+# Crea una nueva migración llamada `add-descripcion-to-meet`.
+npx sequelize migration:generate --name add-descripcion-to-meet
 
 # Deshace la última migración.
 npx sequelize db:migrate:undo
