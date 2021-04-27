@@ -33,6 +33,9 @@ npm install
 # Ejecuta las migraciones iniciales para las bases de dev y test.
 npm run db:init
 
+# (Opcional) Para datos de prueba
+npm run db:seed
+
 
 # (Si llega a fallar)
 sudo lsof -i tcp:5432
