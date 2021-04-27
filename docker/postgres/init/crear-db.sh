@@ -2,11 +2,11 @@
 set -e
 
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
-  CREATE USER unahur_desapp WITH PASSWORD 'desarrollo';
+  CREATE USER desapp WITH PASSWORD 'desarrollo';
 
-  CREATE DATABASE unahur_desapp_dev;
-  GRANT ALL PRIVILEGES ON DATABASE unahur_desapp_dev TO unahur_desapp;
+  CREATE DATABASE desapp_dev;
+  GRANT ALL PRIVILEGES ON DATABASE desapp_dev TO desapp;
 
   CREATE DATABASE unahur_desapp_test;
-  GRANT ALL PRIVILEGES ON DATABASE unahur_desapp_test TO unahur_desapp;
+  GRANT ALL PRIVILEGES ON DATABASE desapp_test TO desapp;
 EOSQL
