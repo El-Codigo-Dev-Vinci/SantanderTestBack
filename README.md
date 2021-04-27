@@ -32,7 +32,16 @@ npm install
 
 # Ejecuta las migraciones iniciales para las bases de dev y test.
 npm run db:init
-NODE_ENV=test npm run db:init
+
+
+# (Si llega a fallar)
+sudo lsof -i tcp:5432
+sudo kill PID
+
+docker-compose down
+
+# Después volvemos a levantar docker
+docker-compose up -d
 ```
 
 ## :file_folder: Estructura de directorios
