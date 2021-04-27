@@ -91,3 +91,6 @@ npx sequelize migration:generate --name add-descripcion-to-meet
 # Deshace la última migración.
 npx sequelize db:migrate:undo
 ```
+
+### Link to Front-end
+[Front](https://github.com/JoaquinPettinari/Beers-Test-Back)
