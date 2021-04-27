@@ -93,4 +93,4 @@ npx sequelize db:migrate:undo
 ```
 
 ### Link to Front-end
-[Front](https://github.com/JoaquinPettinari/Beers-Test-Back)
+[Front](https://github.com/JoaquinPettinari/Beers-Test-Front)
