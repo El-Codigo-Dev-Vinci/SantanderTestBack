@@ -5,12 +5,15 @@ Para crear una API utilizando NodeJS. Las principales tecnologías que utilizamo
 - [NodeJS](https://nodejs.org/es/): entorno de ejecución para JavaScript.
 - [ExpressJS](https://expressjs.com/): framework para crear aplicaciones web.
 - [Sequelize](https://sequelize.org/master/): ORM (object-relational mapping) para interactuar con una base SQL desde objetos JavaScript.
+- [PostgreSQL](https://www.postgresql.org/): base de datos SQL. (Si no queres usar docker)
 
 ## :point_up: Prerrequisitos - para instalar antes de empezar
 
 Para ejecutar el código es necesario tener NodeJS en su versión 14 (`lts/fermium`).
 
-Por último, se incluye un archivo de [Docker Compose](https://docs.docker.com/compose/) con todo lo necesario para instalar y configurar las bases de datos en PostgreSQL (una para desarrollo y otra para test).
+Por último, se incluye un archivo de [Docker Compose](https://docs.docker.com/compose/) con todo lo necesario para instalar y configurar las bases de datos en PostgreSQL (una para desarrollo y otra para test). Si por algún motivo no querés usar Docker, vas a tener que instalar PostgreSQL y luego ejecutar el script `docker/init/crear-db.sh` en tu entorno.
+
+Generar una 'x-rapidapi-key' en [Rapidapi](https://rapidapi.com/) y copiarlo en los env
 
 ## :ballot_box_with_check: Configuración inicial del proyecto
 
