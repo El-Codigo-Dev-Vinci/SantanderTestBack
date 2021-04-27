@@ -70,6 +70,9 @@ npm start
 # Ejecuta las migraciones.
 npm run db:init
 
+# (Opcional) Carga los datos de prueba en la base de desarrollo.
+npm run db:seed
+
 # Crea una nueva migración llamada `add-descripcion-to-meet`.
 npx sequelize migration:generate --name add-descripcion-to-meet
 
